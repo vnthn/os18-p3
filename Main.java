@@ -1,3 +1,17 @@
+/*
+ * Author: Nils von Nethen, 750115
+ * Hochschule Darmstadt, Fachbereich Informatik
+ * https://www.h-da.de/
+ * 23.5.2018
+ */
+/**
+ * Dieses Programm simuliert ein Callcenter.<br>
+ * Es werden mithilfe von Threads verschiedene Mitarbeiter sowie Anrufer simuliert, die das Callcenter anrufen. Die
+ * Anrufer werden durch eine Warteschlange verwaltet.
+ *
+ * @author Nils von Nethen
+ * @version 1.0
+ */
 public class Main {
     static final   int      QUEUE_SIZE     = 2;
     private static String[] employee_names = {"Anna", "Alexander", "Anouk", "Aurelia", "Annika", "Amelie", "Alina",
@@ -14,6 +28,11 @@ public class Main {
                                               "Bernhardine", "Bertha", "Bessie", "Betty", "Bibiane", "Birthe", "Bjoerk",
                                               "Bonita", "Brenda", "Brigitta", "Britney", "Brooklyn", "Brunhilde",
                                               "Burglinde", "Burglinde"};
+    /**
+     * Die Kommandozeilen-Argumente bestimmen die Anzahl der Mitarbeiter sowie die Anzahl der Anrufer.
+     *
+     * @param args Kommandozeilen-Argumente, die ausgelesen werden.
+     */
     public static void main(String[] args) {
         int employees = 0;
         int callers = 0;

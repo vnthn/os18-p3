@@ -1,12 +1,31 @@
+/*
+ * Author: Nils von Nethen, 750115
+ * Hochschule Darmstadt, Fachbereich Informatik
+ * https://www.h-da.de/
+ * 23.5.2018
+ */
 import java.util.logging.Level;
 import java.util.logging.Logger;
+/**
+ * Die Klasse Employee simuliert einen Mitarbeiter des Callcenters und erweitert die Klasse Thread, damit ein Thread
+ * mit einer Instanz dieser Klasse erzeugt werden kann. <br>
+ */
 public class Employee extends Thread {
     private Thread     myThread;
     private Callcenter callcenter;
     private String     name;
+    /**
+     * Der Konstruktor erstellt eine neue Instanz eines Mitarbeiters und gibt diesem einen Namen.
+     *
+     * @param name ist der Name des Mitarbeiters.
+     */
     Employee(String name) {
         this.name = name;
     }
+    /**
+     * Diese Methode simuliert die Arbeit eines Mitarbeiters des Callcenters. <br>
+     * Durch den Aufruf von join() wartet der Mitarbeiter solange, bis der Anrufer seinen Call beendet hat.
+     */
     @Override
     public void run() {
         callcenter = Callcenter.getInstance(5);
@@ -32,6 +51,11 @@ public class Employee extends Thread {
             }
         }
     }
+    /**
+     * Diese Methode startet den Thread der Instanz des Mitarbeiters. <br>
+     * Nach dem erfolgreichen Start des Threads wird ein kurzer Text auf die Konsole geschrieben, dass der
+     * Mitarbeiter nun am Start ist.
+     */
     @Override
     public void start() {
         if (myThread == null) {
