@@ -1,25 +1,26 @@
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
-public class Callcenter extends ConcurrentLinkedQueue<Caller> {
+class Callcenter extends ConcurrentLinkedQueue<Caller> {
     private static Callcenter instance;
-    private        int        length = 0;
+    private        int        length;
     private Callcenter(int length) {
         this.length = length;
     }
-    public static Callcenter getInstance(int length) {
-        if (instance == null) {
-            instance = new Callcenter(length);
-        }
+    static Callcenter getInstance(int length) {
+        instance = (instance == null ? new Callcenter(length) : instance);
         return instance;
     }
-    public Caller getCaller() {
-        return this.poll();
+    Caller getCaller() {
+        return poll();
     }
-    public boolean putCaller(Caller caller) {
-        if (this.size() < this.length) {
-            this.add(caller);
+    boolean putCaller(Caller caller) {
+        if (size() < length) {
+            add(caller);
             return true;
         }
         return false;
+    }
+    boolean lineIsFree() {
+        return size() < length;
     }
 }

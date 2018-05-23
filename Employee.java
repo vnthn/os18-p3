@@ -4,29 +4,32 @@ public class Employee extends Thread {
     private Thread     myThread;
     private Callcenter callcenter;
     private String     name;
-    public Employee(String name) {
+    Employee(String name) {
         this.name = name;
     }
     @Override
     public void run() {
         callcenter = Callcenter.getInstance(5);
-        Caller nextCaller = callcenter.getCaller();
         Caller currentCaller;
-        while ((currentCaller = callcenter.getCaller()) == null) {
-            try {
-                this.sleep(1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+        while (true) {
+            while ((currentCaller = callcenter.getCaller()) == null) {
+                try {
+                    sleep(1000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Employee.class.getName())
+                          .log(Level.SEVERE, null, ex);
+                }
             }
-        }
-        synchronized (currentCaller) {
-            currentCaller.notify();
-        }
-        System.out.println();
-        try {
-            currentCaller.join();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+            synchronized (currentCaller) {
+                currentCaller.notify();
+            }
+            System.out.println(name + " spricht jetzt mit " + currentCaller.hisName());
+            try {
+                currentCaller.join();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Employee.class.getName())
+                      .log(Level.SEVERE, null, ex);
+            }
         }
     }
     @Override
