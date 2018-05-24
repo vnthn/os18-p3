@@ -44,7 +44,7 @@ public class Caller extends Thread {
     @Override
     public void run() {
         while (true) {
-            callcenter = Callcenter.getInstance(Main.QUEUE_SIZE);
+            callcenter = Callcenter.getInstance(Main.queueSize);
             while (!callcenter.lineIsFree()) {
                 try {
                     sleep(CALLERS_TRYING_TO_CALL_EVERY_MILLIS);

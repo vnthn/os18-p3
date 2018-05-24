@@ -4,7 +4,6 @@
  * https://www.h-da.de/
  * 23.5.2018
  */
-
 import java.util.concurrent.ConcurrentLinkedQueue;
 /**
  * Die Klasse Callcenter simuliert das Hauptquartier des Callcenters, indem es die Warteschlange bereitstellt. <br>
@@ -54,6 +53,7 @@ class Callcenter extends ConcurrentLinkedQueue<Caller> {
     /**
      * Methode, die zurück-liefert ob die Warteschlange frei ist. Ist sie frei, können Anrufer sich in die
      * Warteschlange setzen.
+     *
      * @return ob die Warteschlange frei ist.
      */
     boolean lineIsFree() {

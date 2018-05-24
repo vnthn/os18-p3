@@ -13,7 +13,7 @@
  * @version 1.0
  */
 public class Main {
-    static final   int      QUEUE_SIZE     = 2;
+    public static  int      queueSize;
     private static String[] employee_names = {"Anna", "Alexander", "Anouk", "Aurelia", "Annika", "Amelie", "Alina",
                                               "Anton", "Antonia", "Adrian", "Angela", "Alfred", "Adam", "August",
                                               "Aurelius", "Ann"};
@@ -36,25 +36,26 @@ public class Main {
     public static void main(String[] args) {
         int employees = 0;
         int callers = 0;
+        queueSize = 0;
         try {
-            if (args.length == 2) {
+            if (args.length == 3) {
                 employees = Integer.parseInt(args[0]);
                 callers = Integer.parseInt(args[1]);
+                queueSize = Integer.parseInt(args[2]);
             } else {
-                System.out.println("Bitte genau zwei Argumente (ganze Zahlen) angeben!"
+                System.out.println("Bitte genau drei Argumente (ganze Zahlen) angeben!"
                                    + System.lineSeparator()
                                    + "{Anzahl der Mitarbeiter (max "
                                    + employee_names.length
                                    + ")} {Anzahl der Anrufer (max "
-                                   + caller_names.length
-                                   + ")}");
+                                   + caller_names.length + ")} " + "{Groesse der Warteschlange}");
                 System.exit(1);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.err.println("Bitte genau ein Argument (ganze Zahl) angeben!");
+            System.err.println("Bitte genau drei Argumente (ganze Zahl) angeben!");
             System.exit(1);
         } catch (NumberFormatException e) {
-            System.err.println("Bitte eine ganze Zahl eingeben!");
+            System.err.println("Bitte ganze Zahlen eingeben!");
             System.exit(1);
         }
         final int CALLERS = callers;
@@ -74,7 +75,7 @@ public class Main {
                            + System.lineSeparator()
                            + "--- go! ---"
                            + System.lineSeparator());
-        Callcenter callcenter = Callcenter.getInstance(QUEUE_SIZE);
+        Callcenter callcenter = Callcenter.getInstance(queueSize);
         System.out.println("Mitarbeiter gehen zur Arbeit..." + System.lineSeparator());
         for (int i = 0; i < EMPLOYEES; i++) {
             Employee employee = new Employee(employee_names[i]);

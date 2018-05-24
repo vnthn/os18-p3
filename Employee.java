@@ -28,7 +28,7 @@ public class Employee extends Thread {
      */
     @Override
     public void run() {
-        callcenter = Callcenter.getInstance(5);
+        callcenter = Callcenter.getInstance(Main.queueSize);
         Caller currentCaller;
         while (true) {
             while ((currentCaller = callcenter.getCaller()) == null) {
