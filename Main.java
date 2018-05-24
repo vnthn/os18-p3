@@ -27,7 +27,11 @@ public class Main {
                                               "Baerbel", "Beate", "Beatrice", "Becca", "Belinda", "Berit", "Bernadette",
                                               "Bernhardine", "Bertha", "Bessie", "Betty", "Bibiane", "Birthe", "Bjoerk",
                                               "Bonita", "Brenda", "Brigitta", "Britney", "Brooklyn", "Brunhilde",
-                                              "Burglinde", "Burglinde"};
+                                              "Burglinde", "Burglinde", "Christian", "Chiara", "Carlotta", "Carlos",
+                                              "Christine", "Christopher", "Christoph", "Caesar", "Caillou", "Caitlyn",
+                                              "Calvin", "Cameron", "Camille", "Camilla", "Candy", "Cara", "Caren",
+                                              "Carey", "Carina", "Corinna", "Carl", "Carla", "Carli", "Cedric",
+                                              "Carola", "Caroline", "Carsten", "Cassandra", "Caspar", "Catharina"};
     /**
      * Die Kommandozeilen-Argumente bestimmen die Anzahl der Mitarbeiter sowie die Anzahl der Anrufer.
      *
@@ -70,8 +74,7 @@ public class Main {
                            + System.lineSeparator()
                            + "Namen der Mitarbeiter "
                            + "beginnen mit A."
-                           + System.lineSeparator()
-                           + "Namen der Anrufer beginnen mit B."
+                           + System.lineSeparator() + "Namen der Anrufer beginnen mit B und C."
                            + System.lineSeparator()
                            + "--- go! ---"
                            + System.lineSeparator());
